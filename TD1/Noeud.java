@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Noeud implements Arbre {
+public class Noeud<T> implements Arbre<T> {
 
     private final List<Arbre> fils;
 
@@ -22,7 +22,7 @@ public class Noeud implements Arbre {
     }
 
     @Override
-    public boolean contient(final Integer val) {
+    public boolean contient(final T val) {
         boolean rtr = false;
         for (final Arbre a : fils) {
             if (a.contient(val)) return true;
@@ -31,8 +31,8 @@ public class Noeud implements Arbre {
     }
 
     @Override
-    public Set<Integer> valeurs() {
-        Set<Integer> rtr = new HashSet<>();
+    public Set<T> valeurs() {
+        Set<T> rtr = new HashSet<>();
         for (final Arbre a : fils) {
             rtr.addAll(a.valeurs());
         }
@@ -40,7 +40,7 @@ public class Noeud implements Arbre {
     }
 
     @Override
-    public Integer somme() {
+    public T somme() {
         if (fils == null || fils.size() == 0)
             return null; // should it be 0 ? no because nothing to sum
         // alternative without 0 initialization

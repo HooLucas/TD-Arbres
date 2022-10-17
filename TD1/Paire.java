@@ -24,7 +24,7 @@ public class Paire<T,U> implements IPaire<T,U>
 
     public String toString()
     {
-        return "("+ fst + "," + snd + ")" + "::  Paire[" + fst.getClass() + "," + snd.getClass() + "]" ;
+        return "("+ fst + "," + snd + ")" + "  ::  Paire[" + fst.getClass() + "," + snd.getClass() + "]" ;
     }
     
 
@@ -33,7 +33,7 @@ public static void main(String[] args)
     Paire test=new Paire(5,"oui");
 
     System.out.println(test.toString());
-    test.changerFst(1.0);
+    test=(Paire) test.changerFst(1.0);
     System.out.println(test.toString());
 
 }
